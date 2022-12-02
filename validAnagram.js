@@ -54,3 +54,28 @@ var isAnagram = function(s, t) {
     }
     return true;
 };
+
+
+var isAnagram = (s,t) => {
+    if(s.length !== t.length){
+        return false;
+    }
+    let characters = {};
+
+    for(let i = 0; i < s.length; i++){
+        characters[t[i]] = (characters[t[i]] || 0) + 1;
+    }
+
+    for(let i = 0; i < t.length; t++){
+        if(!characters[t[i]]) return false;
+        characters[t[i]]--
+    }
+
+    for(let letters in characters){
+        if(letters[characters] != 0) return false;
+    }
+
+    return true;
+
+
+}
