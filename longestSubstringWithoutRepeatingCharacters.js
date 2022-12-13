@@ -38,4 +38,3 @@ var longestSubstring = function(s){
     return max;
   }
 
-  
