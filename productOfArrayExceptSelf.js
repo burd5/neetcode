@@ -79,3 +79,28 @@ result[0] = 24
 
 result = [24,12,8,6]
 
+let productExceptSelf = function(nums){
+    let result = [];
+    for(let i = 0; i < nums.length; i++){
+        let sumAll = nums.reduce( (acc,sum) => acc * sum, 1) - nums[i]
+        result.push(sumAll)
+    }
+    return result;
+}
+
+let productExceptSelf = function(nums){
+    let result = [];
+    let productSoFar = 1;
+
+    for(let i = 0; i < nums.length; i++){
+        result[i] = productSoFar;
+        productSoFar *= nums[i]
+    }
+
+    productSoFar = 1
+
+    for(let j = nums.length - 1; j > 0; j--){
+        result[j] = productSoFar;
+        productSoFar *= nums[j]
+    }
+}

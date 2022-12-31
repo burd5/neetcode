@@ -30,4 +30,18 @@ var groupAnagrams = function(strs) {
 // other solutions
 
 
+const groupAnagrams = function(nums){
+    let answer = {};
+    for(let i = 0; i < nums.length; i++){
+        let sorted = nums[i].split('').sort().join('');
+        if(answer[sorted]){
+            answer[sorted].push(nums[i])
+        } else {
+            answer[sorted] = [nums[i]]
+        }
+    }
+
+    return Object.values(answer)
+}
+
 

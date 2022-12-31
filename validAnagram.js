@@ -79,3 +79,36 @@ var isAnagram = (s,t) => {
 
 
 }
+
+
+const isAnagram = function(s,t){
+    let newS = s.toLowerCase().split('').sort().join('')
+    let newT = t.toLowerCase().split('').sort().join('')
+
+    return newS === newT
+}
+
+const isAnagram = function(s,t){
+    if(s.length !== t.length) return false;
+
+    let counts = {};
+
+    for(let i = 0; i < s.length; i++){
+        if(counts[s[i]]){
+            counts[s[i]]++
+        } else {
+            counts[s[i]] = 1
+        }
+    }
+
+    for(let i = 0; i < t.length; i++){
+        if(!counts[t[i]]) return false;
+        counts[t[i]]--
+    }
+
+    for(let item in counts){
+        if(item !== 0) return false;
+    }
+
+    return true;
+}

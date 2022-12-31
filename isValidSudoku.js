@@ -41,3 +41,26 @@ var isValidSudoku = function(board) {
     return true
     
 };
+
+
+const isValidSudoku = function(board){
+    let set = new Set();
+    for(let i = 0; i < board.length; i++){
+        for(let j = 0; j < board.length; j++){
+        if(value !== '.'){
+            let value = board[i][j];
+            let rowStr = `${value} at row ${i}`;
+            let colStr = `${value} at column ${j}`
+            let boxStr = `${value} at box ${Math.floor(i/3)}, ${Math.floor(j/3)}`
+
+            if(set.has(rowStr) || set.has(colStr) || set.has(boxStr)) return false
+            else {
+                set.add(rowStr)
+                set.add(colStr)
+                set.add(boxStr)
+            }
+        }}
+    }
+
+    return true;
+}
