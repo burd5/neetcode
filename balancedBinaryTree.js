@@ -4,6 +4,23 @@ Given a binary tree, determine if it is  height-balanced
 
 */
 
+// DFS - shorter way to write it
+
+var isBalanced = function(tree) {
+	let isBalanced = true
+	function dfs(t){
+		if(!t) return 0
+		const left = dfs(t.left)
+		const right = dfs(t.right)
+		if(Math.abs(left-right) > 1){
+			isBalanced = false
+		}
+		return 1 + Math.max(left, right)
+	}
+	dfs(tree)
+  return isBalanced;    
+};
+
 // Recursive DFS
 
 var isBalanced = function(root) {
